@@ -42,6 +42,45 @@ export default function Main() {
                <button className={style.button}>Contact Me</button>
             </div>
          </div>
+
+         <div className={style.skills}>
+            {/* <div className={style.skillheader}> */}
+            <h1 className={style.skillheader}>Skills</h1>
+            {/* </div> */}
+            <div className={style.skillscontent}>
+               <table>
+                  <tr className={style.tr}>
+                     <th>Skills</th>
+                     <th>Ratings</th>
+                  </tr>
+                  <tr>
+                     <td>Html</td>
+                     <td className={style.rate}></td>
+                  </tr>
+                  <tr>
+                     <td>VanillaCss</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>BootstrapCss</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>TailwindCss</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>JavaScript</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>React.Js</td>
+                     <td></td>
+                  </tr>
+               </table>
+
+            </div>
+         </div>
       </div>
    )
 }
