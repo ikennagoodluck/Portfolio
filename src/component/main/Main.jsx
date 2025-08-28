@@ -2,7 +2,14 @@ import React, {useState} from 'react'
 import style from './Main.module.css'
 export default function Main() {
    function bot() {
-      
+      const bot = document.getElementById('bot_box');
+      const btn = document.getElementById('btn');
+      bot.style.display = 'block';
+      console.log('clicked');
+      if (bot.style.display === 'block') {
+         btn.style.display = 'none';
+      }
+
    }
    return (
       <div>
@@ -41,7 +48,7 @@ export default function Main() {
 
 
          <div className={style.bot}>
-            <div className={style.bot_box}>
+            <div className={style.bot_box} id='bot_box'>
                <h2>MyAI</h2>
                
                <input type="text" placeholder='Ask anything' id='search '/>
@@ -49,7 +56,7 @@ export default function Main() {
 
             </div>
 
-               <button onClick={bot()} className={style.bot_btn}>###</button>
+               <button id='btn' onClick={bot} className={style.bot_btn}>###</button>
 
          </div>
 
