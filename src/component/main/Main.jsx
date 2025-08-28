@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import style from './Main.module.css'
 export default function Main() {
+   function bot() {
+      
+   }
    return (
       <div>
          <div className={style.navbar}>
@@ -19,20 +22,44 @@ export default function Main() {
                <h1 className={style.header}>Hi I'm Goodluck</h1>
             </div>
             <div className={style.homegrid}>
-            <div className={style.design}></div>
-            <div className={style.homecontent}>
-               <div>
-                  <p className={style.paragraph}>Welcome to my portfolio</p>
+               <div className={style.design}></div>
+               <div className={style.homecontent}>
+                  <div>
+                     <p className={style.paragraph}>Welcome to my portfolio</p>
+                  </div>
+                  <div>
+                     <a href="https://github.com/ikennagoodluck?tab=repositories" target='_Blank' className={style.projectlink}>Veiw Projects</a>
+                  </div>
                </div>
-               <div>
-                  <a href="https://github.com/ikennagoodluck?tab=repositories" target='_Blank' className={style.projectlink}>Veiw Projects</a>
-               </div>
-            </div>
             </div>
          </div>
+
+
+
+
+
+
+
          <div className={style.bot}>
-            <a href='#home' className={style.bot}>###</a>
+            <div className={style.bot_box}>
+               <h2>MyAI</h2>
+               
+               <input type="text" placeholder='Ask anything' id='search '/>
+               <i className={`bx bx-upload ${style.logo}`}></i>
+
+            </div>
+
+               <button onClick={bot()} className={style.bot_btn}>###</button>
+
          </div>
+
+
+
+
+
+
+
+
          <div className={style.aboutme} id='aboutme'>
             <h1 className={style.aboutmeheader}>About Me</h1>
             <div className={style.aboutmemain}>
@@ -62,11 +89,11 @@ export default function Main() {
                      <th>Ratings</th>
                   </tr>
                   <tr>
-                     <td><img src="/images/html.png" alt="" srcset="" className={style.skillslogo}/><p>Html</p></td>
+                     <td><img src="/images/html.png" alt="" srcset="" className={style.skillslogo} /><p>Html</p></td>
                      <td className={style.rate}></td>
                   </tr>
                   <tr>
-                     <td><img src="/images/css.png" alt="" srcset="" className={style.skillslogo}/><p>VanillaCss</p></td>
+                     <td><img src="/images/css.png" alt="" srcset="" className={style.skillslogo} /><p>VanillaCss</p></td>
                      <td className={style.secondrate}></td>
                   </tr>
                   <tr>
