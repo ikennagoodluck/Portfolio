@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useRef, useEffect } from "react";
 import style from './Main.module.css'
 export default function Main() {
    // function bot() {
@@ -72,11 +73,13 @@ export default function Main() {
             botMsg.textContent = "Bot: You can contact Ikenna at 📞 07039245529 or 📧 goodluckikennac@gmail.com to discuss opportunities.";
          } else if (lowerText.includes("who is ikenna") || lowerText.includes("tell me about ikenna")) {
             botMsg.textContent = "Bot: Ikenna Goodluck is a cybersecurity professional and web developer. He builds websites, works on offensive security, and helps companies stay protected from threats.";
+         } else if (lowerText.includes("what can you do")) {
+            botMsg.textContent = "Bot: I can answer questions about Ikenna Goodluck, his skills, experience, and how to contact him.";
          }
          else if (lowerText.includes("what does ikenna do") || lowerText.includes("ikenna's work")) {
             botMsg.textContent = "Bot: He specializes in Web Development (React, JavaScript) and Cybersecurity (Threat Hunting, Offensive Security).";
          } else if (
-            lowerText.includes(" okay how do i contact him") ||
+            lowerText.includes("okay how do i contact him") ||
             lowerText.includes("phone") ||
             lowerText.includes("email") ||
             lowerText.includes("reach him") ||
@@ -89,7 +92,7 @@ export default function Main() {
          }
          else if (lowerText.includes("experience")) {
             botMsg.textContent = "Bot: Ikenna has hands-on experience in offensive security, web design, and software development.";
-         }else if(lowerText.includes("what are his skills") || lowerText.includes("what are ikenna's skills")){
+         } else if (lowerText.includes("what are his skills") || lowerText.includes("what are ikenna's skills")) {
             botMsg.textContent = "Bot: Ikenna has expertise in Web Development that makes use of Html5 VanillaCss Javascript, React TailwindCss. He is also into Cybersecurity both offensive security and threat hunting.";
          }
          else if (lowerText.includes("cv") || lowerText.includes("resume")) {
@@ -102,7 +105,7 @@ export default function Main() {
             botMsg.textContent = "Bot: " + qa[lowerText];
          }
 
-         else if (lowerText.includes("ikenna skills") || lowerText.includes("ikenna expertise")) {
+         else if (lowerText.includes("ikenna skills") || lowerText.includes("ikenna expertise") || lowerText.includes("what are his skills")) {
             botMsg.textContent = "Bot: Ikenna has expertise in Web Development, Cybersecurity, and Java. He is also learning advanced Python for security.";
          }
 
@@ -133,10 +136,12 @@ export default function Main() {
       }
    }
 
-
-
-
-
+   function closemessage() {
+      const bot = document.getElementById('bot_box');
+      const btn = document.getElementById('btn');
+      bot.style.display = 'none';
+      btn.style.display = 'block';
+   }
 
    return (
       <div>
@@ -148,7 +153,7 @@ export default function Main() {
                <a href="#home">Home</a>
                <a href="#aboutme">About Me</a>
                <a href="#skills">Skills</a>
-               <a href="" >Contact Me</a>
+               <a href="#footer" >Contact Me</a>
             </div>
          </div>
          <div className={style.home} id='home'>
@@ -170,66 +175,17 @@ export default function Main() {
 
 
 
-
-
-
-
-         {/* <div className={style.bot}>
-            <div className={style.bot_box} id='bot_box'>
-               <h2>MyAI</h2>
-               
-               <input type="text" placeholder='Ask anything' id='search '/>
-               <i className={`bx bx-upload ${style.logo}`}></i>
-
-            </div>
-
-               <button id='btn' onClick={bot} className={style.bot_btn}>###</button>
-
-         </div> */}
-
-
-
-
-         {/* <div className={style.bot}>
-  <div className={style.bot_box} id="bot_box">
-    <h2>MyAI</h2>
-    <div className="messages" id="messages"></div>
-    <input type="text" placeholder="Ask anything..." id="search" />
-  </div>
-
-  <button id="btn" onClick={bot} className={style.bot_btn}>
-    💬
-  </button>
-</div> */}
-
-         {/* <div className={style.bot}>
-  <div className={style.bot_box} id="bot_box">
-    <h2>MyAI</h2>
-    <div className="messages" id="messages"></div>
-
-    <div className="input_area">
-      <input type="text" placeholder="Ask anything..." id="search" />
-      <button>Send</button>
-    </div>
-  </div>
-
-  <button id="btn" onClick={bot} className={style.bot_btn}>
-    💬
-  </button>
-</div> */}
-
-
          <div className={style.bot}>
             <div className={style.bot_box} id="bot_box">
-               <div className={style.header2}>
+
                <h2 className={style.aiheader}>MyAI</h2>
-            </div>
                <div className={style.chat_area} id="chat_area"></div>
 
                <div className={style.input_area}>
                   <input type="text" placeholder="Ask anything..." id="search" />
                   <button className={style.send} onClick={sendMessage}>Send</button>
                </div>
+               <button className={style.close} onClick={closemessage}>Close</button>
             </div>
 
             <button id="btn" onClick={bot} className={style.bot_btn}>💬</button>
@@ -272,27 +228,69 @@ export default function Main() {
                      <td id='rate' className={style.rate}></td>
                   </tr>
                   <tr>
-                     <td><img src="/images/css.png" alt="" srcset="" className={style.skillslogo} /><p>VanillaCss</p></td>
+                     <td>
+                        <img src="/images/css.png" alt="" srcset="" className={style.skillslogo} />
+                        <p>VanillaCss</p>
+                     </td>
                      <td id='rate' className={style.secondrate}></td>
                   </tr>
                   <tr>
-                     <td>BootstrapCss</td>
+                     <td>
+                        <img src="/images/bootstrap.jpeg" alt="" srcset="" className={style.skillslogo} />
+                        <p>BootstrapCss</p>
+                     </td>
                      <td id='rate' className={style.thirdrate}></td>
                   </tr>
                   <tr>
-                     <td>TailwindCss</td>
+                     <td>
+                        <img src="/images/tailwindcss.png" alt="" srcset="" className={style.skillslogo} />
+                        <p>TailwindCss</p></td>
                      <td id='rate' className={style.fourthrate}></td>
                   </tr>
                   <tr>
-                     <td>JavaScript</td>
+                     <td>
+                        <img src="/images/javascript.png" alt="" srcset="" className={style.skillslogo} />
+                        <p>JavaScript</p>
+                     </td>
                      <td id='rate' className={style.fifthrate}></td>
                   </tr>
                   <tr>
-                     <td>React.Js</td>
+                     <td>
+                        <img src="/images/react.svg" alt="" srcset="" className={style.skillslogo} />
+                        <p>React Js</p></td>
                      <td id='rate' className={style.sixthrate}></td>
                   </tr>
                </table>
 
+            </div>
+         </div>
+         <div className={style.footer} id='footer'>
+            <div>
+               <h1>Let's engage in a discussion on an interesting topic.</h1>
+               <br />
+               <br />
+               <br />
+               <br />
+               <p>Feel free to reach out to me for any inquiries or collaborations.</p>
+               <br /><br /><br /><br /><br /><br /><br /><br /><br />
+               <div className={style.socials}>
+               <img src="/images/discord.png" alt="" srcset="" className={style.icon}/>
+               <img src="/images/facebook.png" alt="" srcset="" className={style.icon}/>
+               <img src="/images/linkedin.png" alt="" srcset="" className={style.icon}/>
+               <img src="/images/github.png" alt="" srcset="" className={style.icon}/>
+               </div>
+            </div>
+            <div className={style.contactme}>
+               <h1 className={style.contactheader}>Contact Me</h1>
+               <form action="">
+                  <input type="text" placeholder='Fullname' /><br />
+                  <input type="email" placeholder='Email' className={style.inputfield} /><br />
+                  <input type="text" placeholder='Subject' className={style.inputfield} /><br />
+                  <textarea name="" id="" cols="30" rows="10" placeholder='Message' className={style.textarea}></textarea><br />
+                  <div>
+                     <a href="https://github.com/ikennagoodluck?tab=repositories" target='_Blank' className={style.message}>Send Message</a>
+                  </div>
+               </form>
             </div>
          </div>
       </div>
